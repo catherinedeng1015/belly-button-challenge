@@ -62,7 +62,7 @@ function buildCharts(sample) {
     };
 
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
-    Plotly.plot('bubble', bubbleData, bubbleLayout);
+    Plotly.newPlot('bubble', bubbleData, bubbleLayout);
 
     // Build a Bar Chart
     // Don't forget to slice and reverse the input data appropriately
@@ -78,12 +78,13 @@ function buildCharts(sample) {
       title: "Top 10 Bacteria Cultures Found"
     };
 
-    Plotly.plot('bar', barData, barLayout);
+    Plotly.newPlot('bar', barData, barLayout);
 
     // Render the Bar Chart
-
+    
   });
 }
+
 
 // Function to run on page load
 function init() {
@@ -113,12 +114,15 @@ function init() {
   });
 }
 
+
+
 // Function for event listener
 function optionChanged(newSample) {
   // Build charts and metadata panel each time a new sample is selected
   buildCharts(newSample);
   buildMetadata(newSample);
 }
+
 
 // Initialize the dashboard
 init();
